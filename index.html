@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HỆ THỐNG SÁT HẠCH NGHỀ KHOA MÁY THI CÔNG - CAEE</title>
+    <title>HỆ THỐNG THI TRẮC NGHIỆM NGHỀ KHOA MÁY THI CÔNG - CAEE</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <style>
         :root {
@@ -138,7 +138,7 @@
             <input type="text" id="studentDOB" placeholder="Ngày/Tháng/Năm sinh" class="form-control">
             
             <div style="display: flex; gap: 10px;">
-                <input type="text" id="khoaThi" value="Tháng 4/2026" class="form-control" style="flex: 1.5; background: #f9f9f9;" readonly>
+                <input type="text" id="khoaThi" value="Tháng 6/2026" class="form-control" style="flex: 1.5; background: #f9f9f9;" readonly>
                 <input type="password" id="maThi" placeholder="Mã thi" class="form-control" style="flex: 1;">
             </div>
 
@@ -147,7 +147,7 @@
                 <label for="modeToggle" style="cursor:pointer; font-weight: 700; color: var(--caee-blue);">Chế độ Ôn tập (Có trợ lý AI)</label>
             </div>
 
-            <button class="btn-start" id="btnStart" onclick="validateAndStart()">BẮT ĐẦU SÁT HẠCH ➔</button>
+            <button class="btn-start" id="btnStart" onclick="validateAndStart()">BẮT ĐẦU THI ➔</button>
         </div>
     </div>
 
@@ -158,7 +158,7 @@
         <div class="ai-speech-bubble">
             <div class="ai-title">
                 <span class="speaking-dot" id="speak-indicator"></span>
-                Trợ lý Sát hạch CAEE
+                Trợ lý thi CAEE
             </div>
             <div id="ai-status">Đang đợi học viên vào phòng thi...</div>
         </div>
@@ -177,7 +177,7 @@
 
     <div id="result-screen">
         <div class="result-card">
-            <h2 style="color: var(--caee-blue);">KẾT QUẢ SÁT HẠCH</h2>
+            <h2 style="color: var(--caee-blue);">KẾT QUẢ SÁT THI</h2>
             <div style="margin: 20px 0; font-size: 1.1rem; line-height: 1.6;">
                 <b id="res-name" style="text-transform: uppercase;">---</b><br>
                 Ngày sinh: <span id="res-dob">---</span>
@@ -266,9 +266,9 @@
             const res = await fetch(`${WEB_APP_URL}?action=checkCode&code=${encodeURIComponent(maThi)}&name=${encodeURIComponent(name)}&ngheName=${encodeURIComponent(fullNghe)}`);
             const result = await res.json();
             if(result.isValid) startQuiz();
-            else { alert(result.message); btn.disabled = false; btn.innerText = "BẮT ĐẦU SÁT HẠCH ➔"; }
+            else { alert(result.message); btn.disabled = false; btn.innerText = "BẮT ĐẦU THI ➔"; }
         } catch(e) { 
-            alert("Lỗi máy chủ! Thử lại sau."); btn.disabled = false; btn.innerText = "BẮT ĐẦU SÁT HẠCH ➔";
+            alert("Lỗi máy chủ! Thử lại sau."); btn.disabled = false; btn.innerText = "BẮT ĐẦU THI ➔";
         }
     }
 
